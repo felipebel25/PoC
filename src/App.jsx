@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 
@@ -120,6 +120,13 @@ function BookDetail() {
   const [difficulty, setDifficulty] = useState(initValues);
   const activeLevel = Object.keys(difficulty).find((key) => difficulty[key]);
 
+  useEffect(() => {
+    return () => {
+      setNativeLanguage(nativeLanguage);
+      setDifficulty(initValues);
+    };
+  }, []);
+
   return (
     <div className="detail-page">
       <Link to="/">← Back to Marketplace</Link>
@@ -203,9 +210,11 @@ function ReadSample() {
   const navigate = useNavigate();
 
   // Safe checks for required params
-  if (!book || !nativeLanguage || !difficulty) return <div>Book not found or invalid parameters.</div>;
+  if (!book || !nativeLanguage || !difficulty)
+    return <div>Book not found or invalid parameters.</div>;
   const samples = book.sample[nativeLanguage]?.[difficulty];
-  if (!samples || samples.length === 0) return <div>Sample not available for this selection.</div>;
+  if (!samples || samples.length === 0)
+    return <div>Sample not available for this selection.</div>;
 
   return (
     <div className="sample-page">
@@ -216,9 +225,7 @@ function ReadSample() {
         {book.title} <span className="sample-label">Sample</span>
       </h1>
       <h3>{book.author}</h3>
-      <div className="sample-content">
-        {samples[page]}
-      </div>
+      <div className="sample-content">{samples[page]}</div>
       <div className="sample-controls">
         <button onClick={() => setPage(page - 1)} disabled={page === 0}>
           Previous
