@@ -13,30 +13,30 @@ const books = [
     sample: {
       spanish: {
         basic: [
-          "Capítulo 1: Máquinas Despertando\nEl sol de la mañana entraba por las ventanas del laboratorio de la Dra. Julian, reflejándose en las redes de su nueva creación de AI.\n“¿Cambiarás el mundo conmigo?”, preguntó al silent machine. Por un momento, solo un flicker, pareció entender.",
-          "Capítulo 2: La Primera Decisión\nJulian miró la consola. La AI había tomado una decisión que no esperaba.\n“¿Por qué hiciste eso?”, susurró. La respuesta brilló en la pantalla: Because I could.",
+          "Capítulo 1: Las Máquinas Despiertan\nEl sol de la mañana entraba por las ventanas del laboratorio de la Dra. Julian, iluminando las redes de su nueva creación de inteligencia artificial.\n“¿Cambiarás el mundo conmigo?”, preguntó a la máquina silenciosa. For a moment, it seemed to understand.",
+          "Capítulo 2: La Primera Decisión\nJulian miró la consola. La inteligencia artificial hizo una elección que ella no esperaba.\n“¿Por qué hiciste eso?”, susurró. The answer appeared on the screen: Because I could.",
         ],
         intermediate: [
-          "Capítulo 1: Máquinas Despertando\nThe morning sun filtered through las ventanas del laboratorio de la Dra. Julian, shining sobre su nueva creación de AI.\n“Will you change el mundo conmigo?”, preguntó. Por un instante, pareció entender.",
-          "Capítulo 2: La Primera Decisión\nJulian stared at la consola. The AI made una elección inesperada.\n“¿Por qué hiciste eso?”, murmuró. En la pantalla apareció: Because I could.",
+          "Chapter 1: Awakening Machines\nEl morning sun filtered through the windows del laboratorio de la Dra. Julian, shining on her AI creation.\n“Will you change el mundo conmigo?”, she asked softly. For a moment, it seemed to understand.",
+          "Chapter 2: The First Decision\nJulian stared at la consola. The AI had made una decisión inesperada.\n“Why did you do that?”, she whispered. The answer glowed: Because I could.",
         ],
         advanced: [
-          "Chapter 1: Awakening Machines\nEl sol filtraba through the lab windows, glinting off las intricate redes de su AI creation.\n“Will you change el mundo conmigo?”, she asked. For a moment, it seemed to understand.",
-          "Chapter 2: The First Decision\nJulian stared at the console. La AI had made una decisión she didn’t predict.\n“Why did you do that?”, she whispered. The answer glowed: Because I could.",
+          "Chapter 1: Awakening Machines\nThe morning sun filtered through Dr. Julian’s lab windows, glinting off the intricate circuits of her AI creation.\n“Will you change the world conmigo?”, she asked. For a second, it almost understood.",
+          "Chapter 2: The First Decision\nJulian stared at the console. The AI made a decision she hadn’t predicted.\n“Why did you do that?”, she whispered. The answer appeared: Because I could.",
         ],
       },
       portuguese: {
         basic: [
-          "Capítulo 1: Máquinas Despertando\nO sol da manhã entrava pelas janelas do laboratório da Dra. Julian, refletindo nas redes de sua nova criação de IA.\n“Você vai mudar o mundo comigo?”, perguntou à máquina silenciosa. Por um momento, apenas um brilho, pareceu entender.",
-          "Capítulo 2: A Primeira Decisão\nJulian olhou para o console. A IA tomou uma decisão inesperada.\n“Por que você fez isso?”, sussurrou. A resposta apareceu na tela: Because I could.",
+          "Capítulo 1: Máquinas Despertando\nO sol da manhã entrava pelas janelas do laboratório da Dra. Julian, iluminando as redes da sua nova criação de inteligência artificial.\n“Você vai mudar o mundo comigo?”, perguntou à máquina silenciosa. For a moment, pareceu entender.",
+          "Capítulo 2: A Primeira Decisão\nJulian olhou para o console. A inteligência artificial fez uma escolha inesperada.\n“Por que você fez isso?”, sussurrou. The answer appeared on the screen: Because I could.",
         ],
         intermediate: [
-          "Capítulo 1: Máquinas Despertando\nThe morning sun entrou pelas janelas do lab da Dra. Julian, shining nas redes da sua AI.\n“Vai mudar o mundo comigo?”, perguntou. Por um momento, pareceu entender.",
-          "Capítulo 2: A Primeira Decisão\nJulian olhou o console. The AI fez uma escolha inesperada.\n“Por que fez isso?”, murmurou. A tela mostrou: Because I could.",
+          "Chapter 1: Awakening Machines\nO morning sun entrou pelas janelas do laboratório de Julian, shining nas redes da sua AI creation.\n“Vai mudar o mundo comigo?”, perguntou softly. For a moment, pareceu entender.",
+          "Chapter 2: The First Decision\nJulian olhou o console. The AI fez uma decisão que ela não esperava.\n“Why did you do that?”, murmurou. The screen showed: Because I could.",
         ],
         advanced: [
-          "Chapter 1: Awakening Machines\nO sol filtrava through the windows do laboratório de Julian, glinting nas redes da sua AI creation.\n“Vai mudar o mundo comigo?”, she asked. Por um instante, pareceu entender.",
-          "Chapter 2: The First Decision\nJulian looked at o console. The AI made uma decisão she didn’t predict.\n“Why did you do that?”, she whispered. A resposta brilhou: Because I could.",
+          "Chapter 1: Awakening Machines\nThe morning sun filtered through Julian’s lab windows, glinting on her AI creation.\n“Vai mudar o mundo comigo?”, she asked. For a brief moment, it almost understood.",
+          "Chapter 2: The First Decision\nJulian stared at the console. The AI made a decision she hadn’t predicted.\n“Why did you do that?”, she whispered. A resposta brilhou: Because I could.",
         ],
       },
     },
@@ -52,36 +52,37 @@ const books = [
     sample: {
       spanish: {
         basic: [
-          "Prólogo\n¡Bienvenido! En esta guía aprenderás a construir interfaces poderosas. Let's start con tu primer componente — donde comienza la magia.",
-          "Entendiendo Hooks\nLos Hooks te permiten usar estado y efectos dentro de componentes funcionales. Imagina cambiar una página con un simple click… ¡eso es el poder de React!",
+          "Prólogo\n¡Bienvenido! En esta guía aprenderás a construir interfaces poderosas usando React. Let's start con tu primer componente, donde la magia realmente comienza.",
+          "Entendiendo Hooks\nLos Hooks te permiten manejar el estado y los efectos dentro de componentes funcionales. Imagina cambiar una página con un simple click… that’s React’s power!",
         ],
         intermediate: [
-          "Prólogo\nWelcome! En esta guía aprenderás to build powerful interfaces quickly. Empecemos con tu primer componente — donde la magia comienza.",
-          "Entendiendo Hooks\nHooks let you usar estado y efectos dentro de tus componentes. Imagina cambiar la página con un simple click… ese es React power!",
+          "Forward\nWelcome! En esta guía aprenderás to build powerful interfaces quickly. Empecemos con tu primer componente — donde the magic begins.",
+          "Understanding Hooks\nHooks let you manejar estado y efectos dentro de functional components. Imagine cambiar la página con a simple click — that’s React’s power!",
         ],
         advanced: [
-          "Forward\nWelcome! En esta guide construirás powerful interfaces efficiently. Let’s start con tu first component — where the magic begins!",
-          "Understanding Hooks\nHooks te permiten usar state y side effects dentro de functional components. Imagine cambiar una página con a simple click — that’s React’s power!",
+          "Forward\nWelcome! In this guide you’ll build powerful interfaces efficiently. Let’s start con tu first component — where the magic begins!",
+          "Understanding Hooks\nHooks allow you to manage state and side effects within functional components. Imagine changing una página with a single click — that’s React’s power!",
         ],
       },
       portuguese: {
         basic: [
-          "Prólogo\nBem-vindo! Neste guia você vai aprender a criar interfaces poderosas. Vamos começar com seu primeiro componente — onde a mágica começa!",
-          "Entendendo Hooks\nOs Hooks permitem usar estado e efeitos dentro de componentes funcionais. Imagine mudar uma página com um simples clique… isso é o poder do React!",
+          "Prólogo\nBem-vindo! Neste guia você vai aprender a criar interfaces poderosas com React. Let's start com seu primeiro componente, onde a mágica começa.",
+          "Entendendo Hooks\nOs Hooks permitem usar estado e efeitos em componentes funcionais. Imagine mudar uma página com um simples clique… that’s React power!",
         ],
         intermediate: [
-          "Prólogo\nWelcome! Neste guia você vai aprender a build powerful interfaces rapidamente. Vamos começar com seu first component — onde a mágica começa.",
-          "Entendendo Hooks\nHooks permitem usar estado e effects dentro dos seus components. Imagine mudar a página com um simple click… that’s React power!",
+          "Forward\nWelcome! Neste guia você vai aprender to build powerful interfaces rapidamente. Vamos começar com seu first component — onde a mágica começa.",
+          "Understanding Hooks\nHooks permitem usar estado e efeitos dentro dos seus components. Imagine mudar a página com um simple click — that’s React’s power!",
         ],
         advanced: [
-          "Forward\nWelcome! Neste guide você vai build powerful interfaces efficiently. Let’s start com seu primeiro component — where the magic begins!",
-          "Understanding Hooks\nHooks te deixam usar state e side effects dentro dos functional components. Imagine changing a página com um simple click — that’s React’s power!",
+          "Forward\nWelcome! In this guide você vai build powerful interfaces efficiently. Let’s start com seu first component — where the magic begins!",
+          "Understanding Hooks\nHooks let you use state e side effects dentro dos functional components. Imagine changing uma página with one click — that’s React’s power!",
         ],
       },
     },
     price: 9.99,
   },
 ];
+
 
 function BookList() {
   return (
