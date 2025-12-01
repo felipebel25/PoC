@@ -1,0 +1,260 @@
+/* Mobile-first styles (320px+) */
+.language-selection-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(135deg, #1a1f3a 0%, #2d3560 100%);
+  background-size: 50px 50px, 60px 60px, 100% 100%;
+  background-position: 0 0, 0 0, 0 0;
+  background-repeat: repeat, repeat, no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.language-selection-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+  padding: 0 1rem;
+  line-height: 1.2;
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 90%;
+  max-width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.language-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-height: 120px;
+  justify-content: center;
+}
+
+.language-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border-color: #4a90e2;
+}
+
+.language-card:active {
+  transform: translateY(0);
+}
+
+.language-flag {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+
+.language-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1f3a;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.language-learners {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Small mobile (375px+) */
+@media (min-width: 375px) {
+  .language-selection-container {
+  }
+
+  .language-selection-title {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .language-grid {
+    gap: 1.25rem;
+    padding: 0 0.75rem;
+  }
+
+  .language-card {
+    padding: 1.25rem 1rem;
+    min-height: 130px;
+    gap: 0.6rem;
+  }
+
+  .language-flag {
+    font-size: 2.5rem;
+  }
+
+  .language-name {
+    font-size: 1.1rem;
+  }
+
+  .language-learners {
+    font-size: 0.85rem;
+  }
+}
+
+/* Medium mobile / Small tablet (480px+) */
+@media (min-width: 480px) {
+  .language-selection-container {
+  }
+
+  .language-selection-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .language-grid {
+    gap: 1.5rem;
+    max-width: 500px;
+    padding: 0;
+  }
+
+  .language-card {
+    padding: 1.5rem;
+    min-height: 140px;
+    gap: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .language-flag {
+    font-size: 3rem;
+  }
+
+  .language-name {
+    font-size: 1.25rem;
+  }
+
+  .language-learners {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .language-selection-container {
+  }
+
+  .language-selection-title {
+    font-size: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .language-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+  }
+
+  .language-card {
+    padding: 2rem 1.5rem;
+    min-height: 160px;
+    gap: 0.875rem;
+  }
+
+  .language-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .language-flag {
+    font-size: 3.5rem;
+  }
+
+  .language-name {
+    font-size: 1.4rem;
+  }
+
+  .language-learners {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .language-selection-container {
+  }
+
+  .language-selection-title {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .language-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1000px;
+  }
+
+  .language-card {
+    padding: 2.5rem 2rem;
+    min-height: 180px;
+    gap: 1rem;
+    border-radius: 14px;
+  }
+
+  .language-flag {
+    font-size: 4rem;
+  }
+
+  .language-name {
+    font-size: 1.5rem;
+  }
+
+  .language-learners {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large desktop (1440px+) */
+@media (min-width: 1440px) {
+  .language-grid {
+    max-width: 1200px;
+    gap: 3rem;
+  }
+
+  .language-card {
+    padding: 3rem 2.5rem;
+    min-height: 200px;
+  }
+
+  .language-flag {
+    font-size: 4.5rem;
+  }
+
+  .language-name {
+    font-size: 1.6rem;
+  }
+
+  .language-learners {
+    font-size: 1.15rem;
+  }
+}

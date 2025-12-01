@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
+import { Routes, Route, Link, useParams, useNavigate, Navigate } from "react-router-dom";
+import { useUser } from "./contexts/UserContext";
+import Welcome from "./components/Welcome";
+import LanguageSelection from "./components/LanguageSelection";
+import LearnLanguageSelection from "./components/LearnLanguageSelection";
+import UserTypeSelection from "./components/UserTypeSelection";
+import LevelSelection from "./components/LevelSelection";
+import ReadingPreferenceSelection from "./components/ReadingPreferenceSelection";
+import GeneratedBook from "./components/GeneratedBook";
 import "./App.css";
-import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 
 const books = [
   {
@@ -86,7 +94,7 @@ const books = [
 
 function BookList() {
   return (
-    <div className="marketplace-container">
+    <div className="marketplace-container mt-[1rem]">
       <h1>eBook Marketplace</h1>
       <ul className="book-list">
         {books.map((book) => (
@@ -115,22 +123,27 @@ function BookDetail() {
   const { id } = useParams();
   const book = books.find((b) => b.id === id);
   const navigate = useNavigate();
+  const { user, updateUser } = useUser();
   if (!book) return <div>Book not found.</div>;
 
-  const [nativeLanguage, setNativeLanguage] = useState("");
+  const [nativeLanguage, setNativeLanguage] = useState(user.nativeLanguage || "");
   const [difficulty, setDifficulty] = useState(initValues);
   const activeLevel = Object.keys(difficulty).find((key) => difficulty[key]);
 
   useEffect(() => {
-    return () => {
-      setNativeLanguage(nativeLanguage);
-      setDifficulty(initValues);
-    };
-  }, []);
+    if (user.nativeLanguage) {
+      setNativeLanguage(user.nativeLanguage);
+    }
+  }, [user.nativeLanguage]);
+
+  const handleLanguageChange = (lang) => {
+    setNativeLanguage(lang);
+    updateUser({ nativeLanguage: lang });
+  };
 
   return (
     <div className="detail-page">
-      <Link to="/">← Back to Marketplace</Link>
+      <Link to="/reading-preference">← Back to Marketplace</Link>
       <div className="detail-contents">
         <img
           src={book.image}
@@ -144,20 +157,18 @@ function BookDetail() {
           <h1>Native Language</h1>
           <div style={{ display: "flex", justifyContent: "space-evenly" }}>
             <button
-              className={`${
-                nativeLanguage !== "portuguese" ? "outlineButton" : ""
-              }`}
+              className={`${nativeLanguage !== "portuguese" ? "outlineButton" : ""
+                }`}
               style={{ marginTop: 16 }}
-              onClick={() => setNativeLanguage("portuguese")}
+              onClick={() => handleLanguageChange("portuguese")}
             >
               Portuguese
             </button>
             <button
               style={{ marginTop: 16 }}
-              className={`${
-                nativeLanguage !== "spanish" ? "outlineButton" : ""
-              }`}
-              onClick={() => setNativeLanguage("spanish")}
+              className={`${nativeLanguage !== "spanish" ? "outlineButton" : ""
+                }`}
+              onClick={() => handleLanguageChange("spanish")}
             >
               Spanish
             </button>
@@ -245,14 +256,56 @@ function ReadSample() {
   );
 }
 
+function ProtectedRoute({ children }) {
+  const { user } = useUser();
+  
+  if (!user.nativeLanguage) {
+    return <Navigate to="/language-selection" replace />;
+  }
+  
+  return children;
+}
+
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<BookList />} />
-      <Route path="/book/:id" element={<BookDetail />} />
+      <Route path="/" element={<Welcome />} />
+      <Route path="/language-selection" element={<LanguageSelection />} />
+      <Route path="/learn-language-selection" element={<LearnLanguageSelection />} />
+      <Route path="/user-type-selection" element={<UserTypeSelection />} />
+      <Route path="/level-selection" element={<LevelSelection />} />
+      <Route path="/reading-preference" element={<ReadingPreferenceSelection />} />
+      <Route
+        path="/generated-book"
+        element={
+          <ProtectedRoute>
+            <GeneratedBook />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/marketplace"
+        element={
+          <ProtectedRoute>
+            <BookList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/book/:id"
+        element={
+          <ProtectedRoute>
+            <BookDetail />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/read/:id/:nativeLanguage/:difficulty"
-        element={<ReadSample />}
+        element={
+          <ProtectedRoute>
+            <ReadSample />
+          </ProtectedRoute>
+        }
       />
     </Routes>
   );
