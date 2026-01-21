@@ -456,3 +456,210 @@
   }
 }
 
+/* Option buttons row (for single-row selections) */
+.option-buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.option-button {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1f3a;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.option-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-color: #4a90e2;
+}
+
+.option-button.selected {
+  border-color: #4a90e2;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.option-button:active {
+  transform: translateY(0);
+}
+
+/* Toggle options */
+.toggle-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.toggle-option:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.toggle-option input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4a90e2;
+}
+
+.toggle-option span {
+  user-select: none;
+}
+
+/* Tense grid */
+.tense-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tense-button {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.tense-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-color: #4a90e2;
+}
+
+.tense-button.selected {
+  border-color: #4a90e2;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.tense-button:active {
+  transform: translateY(0);
+}
+
+.tense-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1f3a;
+}
+
+.tense-description {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive adjustments for option buttons */
+@media (min-width: 480px) {
+  .option-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .option-buttons-row {
+    gap: 1rem;
+  }
+
+  .option-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 16px;
+  }
+
+  .toggle-option {
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .toggle-option input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+  }
+
+  .tense-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tense-button {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+
+  .tense-name {
+    font-size: 1.1rem;
+  }
+
+  .tense-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .option-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.15rem;
+  }
+
+  .tense-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .tense-button {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .tense-name {
+    font-size: 1.15rem;
+  }
+
+  .tense-description {
+    font-size: 0.95rem;
+  }
+}

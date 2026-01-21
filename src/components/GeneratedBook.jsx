@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { generateBookText } from '../services/openaiService';
@@ -13,9 +13,45 @@ function GeneratedBook() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showTranslations, setShowTranslations] = useState(false);
+  const hasGeneratedRef = useRef(false);
+  const lastUserKeyRef = useRef('');
 
   useEffect(() => {
+    // Create a unique key from user preferences
+    const userKey = JSON.stringify({
+      nativeLanguage: user.nativeLanguage,
+      learnLanguage: user.learnLanguage,
+      readingCategory: user.readingCategory,
+      readingTextStyle: user.readingTextStyle,
+      readingInput: user.readingInput,
+      vocabularyDifficulty: user.vocabularyDifficulty,
+      sentenceComplexity: user.sentenceComplexity,
+      tone: user.tone,
+      pointOfView: user.pointOfView,
+      includeDialogue: user.includeDialogue,
+      includeDescriptions: user.includeDescriptions,
+      culturalContext: user.culturalContext,
+      timePeriod: user.timePeriod,
+      grammarTense: user.grammarTense,
+      emotion: user.emotion,
+    });
+
+    // Only generate if preferences changed or haven't been generated yet
+    if (hasGeneratedRef.current && lastUserKeyRef.current === userKey) {
+      return;
+    }
+
     const fetchBook = async () => {
+      if (!user.nativeLanguage || !user.learnLanguage) {
+        setError('Missing language preferences. Please go back and select your languages.');
+        setLoading(false);
+        return;
+      }
+
+      // Mark as generated and store the key
+      hasGeneratedRef.current = true;
+      lastUserKeyRef.current = userKey;
+
       try {
         setLoading(true);
         setError(null);
@@ -31,17 +67,15 @@ function GeneratedBook() {
       } catch (err) {
         console.error('Error generating book:', err);
         setError(err.message || 'Failed to generate book. Please try again.');
+        // Reset on error so user can retry
+        hasGeneratedRef.current = false;
+        lastUserKeyRef.current = '';
       } finally {
         setLoading(false);
       }
     };
 
-    if (user.nativeLanguage && user.learnLanguage) {
-      fetchBook();
-    } else {
-      setError('Missing language preferences. Please go back and select your languages.');
-      setLoading(false);
-    }
+    fetchBook();
   }, [user]);
 
   const formatText = (text) => {

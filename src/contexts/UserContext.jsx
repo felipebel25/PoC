@@ -10,6 +10,18 @@ export function UserProvider({ children }) {
     skillLevel: null,
     readingCategory: null,
     readingInput: null,
+    readingTextStyle: null,
+    vocabularyDifficulty: null,
+    sentenceComplexity: null,
+    tone: null,
+    pointOfView: null,
+    includeDialogue: true,
+    includeDescriptions: true,
+    culturalContext: null,
+    timePeriod: null,
+    includeComprehensionQuestions: false,
+    grammarTense: null,
+    emotion: null,
   });
 
   const updateUser = (updates) => {
